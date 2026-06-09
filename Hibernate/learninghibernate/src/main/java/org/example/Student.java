@@ -1,13 +1,18 @@
 package org.example;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "students")
 public class Student {
     @Id
     private int id;
+    @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "email", nullable = false)
     private String email;
     public int getId() {
         return id;

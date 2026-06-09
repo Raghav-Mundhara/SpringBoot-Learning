@@ -9,7 +9,7 @@
         <property name="jakarta.persistence.jdbc.user">root</property>
         <property name="jakarta.persistence.jdbc.password">0000</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="hibernate.agroal.maxSize">5</property>
         <property name="hibernate.agroal.initialSize">1</property>
         <property name="jakarta.persistence.jdbc.url">jdbc:postgresql://localhost:5432/l1?TimeZone=Asia/Kolkata</property>

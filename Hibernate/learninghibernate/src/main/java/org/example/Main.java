@@ -57,7 +57,7 @@ public class Main {
 				.addAnnotatedClass(Student.class);
 		SessionFactory sessionfactory = configuration.buildSessionFactory();
 
-		// saveStudent(student, sessionfactory);
+		saveStudent(student, sessionfactory);
 		// getStudentById(sessionfactory,0);
 
 		// Student student2 = new Student();
@@ -66,7 +66,7 @@ public class Main {
 		// student2.setEmail("ethan123@gmail.com");
 
 		// updateStudent(sessionfactory, student2);
-		deleteStudent(sessionfactory, 0);
+		// deleteStudent(sessionfactory, 0);
 	}
 
 }
