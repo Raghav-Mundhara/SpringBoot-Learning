@@ -1,0 +1,1 @@
+docker run --name learninghibernate -e POSTGRES_PASSWORD=0000 -e POSTGRES_USER=root -e POSTGRES_DB=l1 -p 5432:5432 -d postgres
