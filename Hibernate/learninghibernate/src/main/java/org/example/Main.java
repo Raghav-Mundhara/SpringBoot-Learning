@@ -67,6 +67,18 @@ public class Main {
 
 		// updateStudent(sessionfactory, student2);
 		// deleteStudent(sessionfactory, 0);
+
+
+		Laptop laptop = new Laptop();
+		String[] brands = {"Dell", "HP", "Lenovo", "Asus", "Acer", "Apple", "MSI", "Samsung"};
+		String[] models = {"XPS 13", "Pavilion", "ThinkPad X1", "ZenBook", "Aspire 5", "MacBook Pro", "Stealth 15", "Galaxy Book"};
+		int[] ramOptions = {8, 16, 32, 64};
+
+		laptop.setBrand(brands[(int) (Math.random() * brands.length)]);
+		laptop.setModel(models[(int) (Math.random() * models.length)]);
+		laptop.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
+		student.setLaptop(laptop);
+		updateStudent(sessionfactory, student);
 	}
 
 }

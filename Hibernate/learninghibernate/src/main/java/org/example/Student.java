@@ -14,6 +14,9 @@ public class Student {
     private String name;
     @Column(name = "email", nullable = false)
     private String email;
+
+    private Laptop laptop;
+
     public int getId() {
         return id;
     }
@@ -32,10 +35,15 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    public Laptop getLaptop() {
+        return laptop;
+    }
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
     @Override
     public String toString() {
-        return "Student [id=" + id + ", name=" + name + ", email=" + email + ", toString()=" + super.toString() + "]";
+        return "Student [id=" + id + ", name=" + name + ", email=" + email + ", laptop=" + laptop + "]";
     }    
  
 }
