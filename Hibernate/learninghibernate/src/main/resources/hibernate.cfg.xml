@@ -13,5 +13,7 @@
         <property name="hibernate.agroal.maxSize">5</property>
         <property name="hibernate.agroal.initialSize">1</property>
         <property name="jakarta.persistence.jdbc.url">jdbc:postgresql://localhost:5432/l1?TimeZone=Asia/Kolkata</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
     </session-factory>
 </hibernate-configuration>

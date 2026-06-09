@@ -11,7 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Kolkata"));
 		Student student = new Student();
-		student.setId(2);
+		student.setId((int) (Math.random() * 10000));
 		student.setName("John Doe");
 		student.setEmail("john.doe@example.com");
 
@@ -28,6 +28,7 @@ public class Main {
 		session.persist(student);
 		session.getTransaction().commit();
 		session.close();
+		sessionfactory.close();
 
 	}
 
