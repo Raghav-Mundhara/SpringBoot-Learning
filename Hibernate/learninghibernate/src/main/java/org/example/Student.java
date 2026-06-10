@@ -1,8 +1,11 @@
 package org.example;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -15,8 +18,8 @@ public class Student {
     private String name;
     @Column(name = "email", nullable = false)
     private String email;
-    @OneToOne
-    private Laptop laptop;
+    @OneToMany
+    private List<Laptop> laptops;
 
     public int getId() {
         return id;
@@ -36,15 +39,15 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Laptop getLaptop() {
-        return laptop;
+    public List<Laptop> getLaptops() {
+        return laptops;
     }
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
+    public void setLaptops(List<Laptop> laptops) {
+        this.laptops = laptops;
     }
     @Override
     public String toString() {
-        return "Student [id=" + id + ", name=" + name + ", email=" + email + ", laptop=" + laptop + "]";
+        return "Student [id=" + id + ", name=" + name + ", email=" + email + ", laptop=" + laptops + "]";
     }    
  
 }

@@ -1,6 +1,6 @@
 package org.example;
 
-import java.util.TimeZone;
+import java.util.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -79,18 +79,27 @@ public class Main {
 		// deleteStudent(sessionfactory, 0);
 
 
-		Laptop laptop = new Laptop();
+		Laptop laptop1 = new Laptop();
 		String[] brands = {"Dell", "HP", "Lenovo", "Asus", "Acer", "Apple", "MSI", "Samsung"};
 		String[] models = {"XPS 13", "Pavilion", "ThinkPad X1", "ZenBook", "Aspire 5", "MacBook Pro", "Stealth 15", "Galaxy Book"};
 		int[] ramOptions = {8, 16, 32, 64};
 
-		laptop.setId((int) (Math.random() * 100));
-		laptop.setBrand(brands[(int) (Math.random() * brands.length)]);
-		laptop.setModel(models[(int) (Math.random() * models.length)]);
-		laptop.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
-		student.setLaptop(laptop);
+		laptop1.setId((int) (Math.random() * 100));
+		laptop1.setBrand(brands[(int) (Math.random() * brands.length)]);
+		laptop1.setModel(models[(int) (Math.random() * models.length)]);
+		laptop1.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
 
-		saveLaptop(laptop, sessionfactory);
+		Laptop laptop2 = new Laptop();
+		laptop2.setId((int) (Math.random() * 100));
+		laptop2.setBrand(brands[(int) (Math.random() * brands.length)]);
+		laptop2.setModel(models[(int) (Math.random() * models.length)]);
+		laptop2.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
+
+		List<Laptop> laptops = Arrays.asList(laptop1, laptop2);
+		student.setLaptops(laptops);
+
+		saveLaptop(laptop1, sessionfactory);
+		saveLaptop(laptop2, sessionfactory);
 		saveStudent(student, sessionfactory);
 		
 		// updateStudent(sessionfactory, student);
