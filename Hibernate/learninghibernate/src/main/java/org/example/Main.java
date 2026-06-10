@@ -49,18 +49,34 @@ public class Main {
 
 	public static void main(String[] args) {
 		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Kolkata"));
-		Student student = new Student();
-
+		
 		String[] names = {"Alice", "Bob", "Charlie", "Diana", "Ethan", "Fatima", "George", "Hannah"};
 		String[] domains = {"gmail.com", "yahoo.com", "outlook.com", "hotmail.com"};
 		String name = names[(int) (Math.random() * names.length)];
 		String email = name.toLowerCase() + (int)(Math.random() * 1000) + "@" + domains[(int) (Math.random() * domains.length)];
 		
-		student.setId((int) (Math.random() * 100));
-		student.setName(name);
-		student.setEmail(email);
+		Student student1 = new Student();
+		student1.setId((int) (Math.random() * 100));
+		student1.setName(name);
+		student1.setEmail(email);
 
-		System.out.println(student);
+		name = names[(int) (Math.random() * names.length)];
+		email = name.toLowerCase() + (int)(Math.random() * 1000) + "@" + domains[(int) (Math.random() * domains.length)];
+		
+		Student student2 = new Student();
+		student2.setId((int) (Math.random() * 100));
+		student2.setName(name);
+		student2.setEmail(email);
+		
+		name = names[(int) (Math.random() * names.length)];
+		email = name.toLowerCase() + (int)(Math.random() * 1000) + "@" + domains[(int) (Math.random() * domains.length)];
+
+		Student student3 = new Student();
+		student3.setId((int) (Math.random() * 100));
+		student3.setName(name);
+		student3.setEmail(email);
+
+		System.out.println(student1.toString());
 		Configuration configuration = new Configuration()
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Laptop.class)
@@ -79,29 +95,41 @@ public class Main {
 		// deleteStudent(sessionfactory, 0);
 
 
-		Laptop laptop1 = new Laptop();
 		String[] brands = {"Dell", "HP", "Lenovo", "Asus", "Acer", "Apple", "MSI", "Samsung"};
 		String[] models = {"XPS 13", "Pavilion", "ThinkPad X1", "ZenBook", "Aspire 5", "MacBook Pro", "Stealth 15", "Galaxy Book"};
 		int[] ramOptions = {8, 16, 32, 64};
-
+		
+		Laptop laptop1 = new Laptop();
 		laptop1.setId((int) (Math.random() * 100));
 		laptop1.setBrand(brands[(int) (Math.random() * brands.length)]);
 		laptop1.setModel(models[(int) (Math.random() * models.length)]);
 		laptop1.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
-		laptop1.setStudent(student);
+		laptop1.setStudent(Arrays.asList(student1,student2));
+
 		Laptop laptop2 = new Laptop();
 		laptop2.setId((int) (Math.random() * 100));
 		laptop2.setBrand(brands[(int) (Math.random() * brands.length)]);
 		laptop2.setModel(models[(int) (Math.random() * models.length)]);
 		laptop2.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
-		laptop2.setStudent(student);
+		laptop2.setStudent(Arrays.asList(student1,student3));
 
-		List<Laptop> laptops = Arrays.asList(laptop1, laptop2);
-		student.setLaptops(laptops);
+		Laptop laptop3 = new Laptop();
+		laptop3.setId((int) (Math.random() * 100));
+		laptop3.setBrand(brands[(int) (Math.random() * brands.length)]);
+		laptop3.setModel(models[(int) (Math.random() * models.length)]);
+		laptop3.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
+		laptop3.setStudent(Arrays.asList(student1));
+
+		student1.setLaptops(Arrays.asList(laptop1,laptop2));
+		student2.setLaptops(Arrays.asList(laptop1,laptop3));
+		student3.setLaptops(Arrays.asList(laptop1));
 		
-		saveStudent(student, sessionfactory);
 		saveLaptop(laptop1, sessionfactory);
 		saveLaptop(laptop2, sessionfactory);
+		saveLaptop(laptop3, sessionfactory);
+		saveStudent(student1, sessionfactory);
+		saveStudent(student2, sessionfactory);
+		saveStudent(student3, sessionfactory);
 		
 		// updateStudent(sessionfactory, student);
 	}
