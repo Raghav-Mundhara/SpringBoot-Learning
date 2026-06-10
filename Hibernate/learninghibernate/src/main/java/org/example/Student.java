@@ -18,7 +18,7 @@ public class Student {
     private String name;
     @Column(name = "email", nullable = false)
     private String email;
-    @OneToMany
+    @OneToMany(mappedBy = "student")
     private List<Laptop> laptops;
 
     public int getId() {

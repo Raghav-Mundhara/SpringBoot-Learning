@@ -88,19 +88,20 @@ public class Main {
 		laptop1.setBrand(brands[(int) (Math.random() * brands.length)]);
 		laptop1.setModel(models[(int) (Math.random() * models.length)]);
 		laptop1.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
-
+		laptop1.setStudent(student);
 		Laptop laptop2 = new Laptop();
 		laptop2.setId((int) (Math.random() * 100));
 		laptop2.setBrand(brands[(int) (Math.random() * brands.length)]);
 		laptop2.setModel(models[(int) (Math.random() * models.length)]);
 		laptop2.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
+		laptop2.setStudent(student);
 
 		List<Laptop> laptops = Arrays.asList(laptop1, laptop2);
 		student.setLaptops(laptops);
-
+		
+		saveStudent(student, sessionfactory);
 		saveLaptop(laptop1, sessionfactory);
 		saveLaptop(laptop2, sessionfactory);
-		saveStudent(student, sessionfactory);
 		
 		// updateStudent(sessionfactory, student);
 	}
