@@ -38,6 +38,15 @@ public class Main {
 		session.getTransaction().commit();
 		session.close();
 	}
+
+	public static void saveLaptop(Laptop laptop, SessionFactory sessionfactory) {
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();
+		session.persist(laptop);
+		session.getTransaction().commit();
+		session.close();
+	}
+
 	public static void main(String[] args) {
 		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Kolkata"));
 		Student student = new Student();
@@ -54,10 +63,11 @@ public class Main {
 		System.out.println(student);
 		Configuration configuration = new Configuration()
 				.configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Laptop.class)
 				.addAnnotatedClass(Student.class);
 		SessionFactory sessionfactory = configuration.buildSessionFactory();
 
-		saveStudent(student, sessionfactory);
+		// saveStudent(student, sessionfactory);
 		// getStudentById(sessionfactory,0);
 
 		// Student student2 = new Student();
@@ -74,11 +84,16 @@ public class Main {
 		String[] models = {"XPS 13", "Pavilion", "ThinkPad X1", "ZenBook", "Aspire 5", "MacBook Pro", "Stealth 15", "Galaxy Book"};
 		int[] ramOptions = {8, 16, 32, 64};
 
+		laptop.setId((int) (Math.random() * 100));
 		laptop.setBrand(brands[(int) (Math.random() * brands.length)]);
 		laptop.setModel(models[(int) (Math.random() * models.length)]);
 		laptop.setRam(ramOptions[(int) (Math.random() * ramOptions.length)]);
 		student.setLaptop(laptop);
-		updateStudent(sessionfactory, student);
+
+		saveLaptop(laptop, sessionfactory);
+		saveStudent(student, sessionfactory);
+		
+		// updateStudent(sessionfactory, student);
 	}
 
 }

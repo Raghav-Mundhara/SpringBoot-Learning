@@ -3,6 +3,7 @@ package org.example;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,7 +15,7 @@ public class Student {
     private String name;
     @Column(name = "email", nullable = false)
     private String email;
-
+    @OneToOne
     private Laptop laptop;
 
     public int getId() {
