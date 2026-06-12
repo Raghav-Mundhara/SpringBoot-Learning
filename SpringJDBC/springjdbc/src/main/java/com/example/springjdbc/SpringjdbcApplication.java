@@ -1,6 +1,7 @@
 package com.example.springjdbc;
 
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +14,7 @@ import com.example.springjdbc.service.StudentService;
 public class SpringjdbcApplication {
 
 	public static void main(String[] args) {
+		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Kolkata"));
 		ApplicationContext context = SpringApplication.run(SpringjdbcApplication.class, args);
 
 		Student s= context.getBean(Student.class);
