@@ -22,3 +22,14 @@ public class JobRepo {
         return jobs;
     }
 }
+
+//Sample JSON for JobPost
+/*
+{
+    "postId": 4,
+    "postProfile": "UI/UX Designer",
+    "postDesc": "Design user interfaces and improve user experience.",
+    "requiredExp": 4,
+    "postTechStack": ["Figma", "Adobe XD"]
+}
+*/

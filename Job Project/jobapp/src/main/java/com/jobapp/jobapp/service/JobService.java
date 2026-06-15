@@ -14,11 +14,11 @@ public class JobService {
     private JobRepo jobRepo;
 
     public void addJob(JobPost jobPost) {
-        // Logic to add a job post using jobRepo
+        jobRepo.addJob(jobPost);
     }
     
     public List<JobPost> getAllJobs() {
         // Logic to retrieve all job posts using jobRepo
-        return null;
+        return jobRepo.getAllJobs();
     }
 }
