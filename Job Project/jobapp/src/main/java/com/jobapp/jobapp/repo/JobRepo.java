@@ -21,6 +21,21 @@ public class JobRepo {
     public List<JobPost> getAllJobs() {
         return jobs;
     }
+
+    public JobPost getJobById(int id){
+        for(JobPost job : jobs){
+            if(job.getPostId() == id){
+                return job;
+            }
+        }
+        return null;
+    }
+    public void  deleteJobById(int id){
+        jobs.removeIf(job->job.getPostId()==id);
+    }
+    public void  updateJobPost(int id,JobPost updatedJob){
+        jobs.replaceAll(job -> job.getPostId() == id ? updatedJob : job);
+    }
 }
 
 //Sample JSON for JobPost

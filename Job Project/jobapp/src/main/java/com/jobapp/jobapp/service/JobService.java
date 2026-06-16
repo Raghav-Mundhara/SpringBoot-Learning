@@ -21,4 +21,14 @@ public class JobService {
         // Logic to retrieve all job posts using jobRepo
         return jobRepo.getAllJobs();
     }
+
+    public JobPost getJobById(int id){
+        return jobRepo.getJobById(id);
+    }
+    public void deleteJobById(int id){
+        jobRepo.deleteJobById(id);
+    }
+    public void updateJobPost(int id,JobPost job){
+        jobRepo.updateJobPost(id,job);
+    }
 }
