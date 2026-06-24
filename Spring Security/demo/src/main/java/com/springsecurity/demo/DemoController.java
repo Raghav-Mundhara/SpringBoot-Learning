@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DemoController {
     @GetMapping("hello")
     public String greet(HttpServletRequest request) {
-        return "Hello" + request.getSession().getId();
+        System.out.println("Hello function called");
+        return "Hello " + request.getSession().getId();
     }
     
 }
