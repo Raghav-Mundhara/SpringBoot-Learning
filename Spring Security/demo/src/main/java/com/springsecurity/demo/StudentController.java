@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +22,11 @@ public class StudentController {
         new Student(2,"Aryan","CPP"),
         new Student(3,"Anish","Java")
     ));
+
+    @GetMapping("csrf-token")
+    public CsrfToken getCsrfToken(HttpServletRequest request){
+        return  (CsrfToken) request.getAttribute("_csrf");
+    }
 
     @GetMapping("students")
     public List<Student> getStudents() {
