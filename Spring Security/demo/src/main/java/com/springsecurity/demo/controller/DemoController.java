@@ -1,4 +1,4 @@
-package com.springsecurity.demo;
+package com.springsecurity.demo.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 

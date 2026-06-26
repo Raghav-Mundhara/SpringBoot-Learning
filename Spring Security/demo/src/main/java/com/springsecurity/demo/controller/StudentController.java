@@ -1,9 +1,11 @@
-package com.springsecurity.demo;
+package com.springsecurity.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.springsecurity.demo.model.Student;
 
 import jakarta.servlet.http.HttpServletRequest;
 
