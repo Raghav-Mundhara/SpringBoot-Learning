@@ -1,8 +1,10 @@
 package com.example.practice.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.example.practice.dto.UserDto;
 import com.example.practice.repository.UserRepository;
 
 @Service
@@ -13,5 +15,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
     
-    
+    public List<UserDto> getAllUsers(){
+        return this.userRepository.findAll();
+    }
 }

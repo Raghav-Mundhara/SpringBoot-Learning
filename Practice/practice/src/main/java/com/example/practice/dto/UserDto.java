@@ -1,8 +1,6 @@
 package com.example.practice.dto;
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class UserDto {
     private Long id;
     private String name;

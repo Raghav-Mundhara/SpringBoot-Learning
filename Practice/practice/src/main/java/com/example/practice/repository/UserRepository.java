@@ -16,5 +16,10 @@ public class UserRepository {
         users.add(new UserDto(2L, "Aryan", "Aryan@gmail.com"));
         users.add(new UserDto(3L, "Anish", "Anish@gmail.com"));
     }
+
+    public List<UserDto> findAll(){
+        return this.users;
+    }
+    
     
 }
