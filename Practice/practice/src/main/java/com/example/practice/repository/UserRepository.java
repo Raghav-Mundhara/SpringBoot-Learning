@@ -20,6 +20,16 @@ public class UserRepository {
     public List<UserDto> findAll(){
         return this.users;
     }
+
+    public UserDto getById(Long id) {
+        UserDto user=null;
+        for (UserDto u : users) {
+            if(u.getId()==id){
+                user=u;
+            }
+        }
+        return user;
+    }
     
     
 }
