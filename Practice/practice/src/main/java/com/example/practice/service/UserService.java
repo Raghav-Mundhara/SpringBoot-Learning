@@ -18,7 +18,11 @@ public class UserService {
     public List<UserDto> getAllUsers(){
         return this.userRepository.findAll();
     }
-    public UserDto getUserById(Long id){
+    public UserDto getUserById(String id){
         return this.userRepository.getById(id);
+    }
+
+    public UserDto createUser(UserDto user) {
+        return this.userRepository.createUser(user);
     }
 }

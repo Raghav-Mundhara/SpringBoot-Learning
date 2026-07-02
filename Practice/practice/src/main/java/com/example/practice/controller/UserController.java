@@ -12,6 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/api/users")
@@ -26,9 +29,16 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable Long id) {
+    public ResponseEntity<?> getUserById(@PathVariable String id) {
         UserDto user = this.userService.getUserById(id);
         if(user == null) return new ResponseEntity<>("User not found",HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(user,HttpStatus.OK);
     }
+
+    @PostMapping
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto user) {
+        this.userService.createUser(user);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    
 }
